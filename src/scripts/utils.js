@@ -6,8 +6,6 @@ function initGL() {
         State.GlCtx.viewportWidth = State.Canvas.width;
         State.GlCtx.viewportHeight = State.Canvas.height;
         State.GlCtx.enable(gl.DEPTH_TEST);
-        State.GlCtx.viewport(0, 0, State.GlCtx.viewportWidth, State.GlCtx.viewportHeight);
-        State.GlCtx.clearColor(0.0, 0.0, 0.0, 1.0);
     } catch (e) { }
 
     if (!State.GlCtx) {

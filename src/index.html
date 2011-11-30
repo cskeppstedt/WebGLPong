@@ -3,25 +3,6 @@
     <head>
         <title>WebGL Pong</title>
         <link rel="stylesheet" type="text/css" href="style/default.css" />
-        <script type="text/javascript" src="scripts/models.js"></script>
-        <script type="text/javascript" src="scripts/webgl-utils.js"></script>
-        <script type="text/javascript" src="scripts/utils.js"></script>
-        <script type="text/javascript" src="scripts/buffers.js"></script>
-        <script type="text/javascript" src="scripts/game.js"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-        <script type="text/javascript">
-            $(function () {
-                State.Canvas = document.getElementById("gameBoard");
-                initGL();
-                initProgram();
-                Buffers.init();
-                Game.Tick();
-            });
-        </script>
-
-    </head>
-    <body>
-        <canvas id="gameBoard" width="560" height="420"></canvas>
         <script id="shader-fs" type="x-shader/x-fragment">
             #ifdef GL_ES
             precision highp float;
@@ -47,5 +28,29 @@
                 vColor = aVertexColor;
             }
         </script>
+        <script type="text/javascript" src="scripts/models.js"></script>
+        <script type="text/javascript" src="scripts/webgl-utils.js"></script>
+        <script type="text/javascript" src="scripts/gl-matrix-min.js"></script>
+        <script type="text/javascript" src="scripts/utils.js"></script>
+        <script type="text/javascript" src="scripts/buffers.js"></script>
+        <script type="text/javascript" src="scripts/game.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                State.Canvas = document.getElementById("screen");
+                initGL();
+                initProgram();
+                Buffers.init();
+
+                //State.GlCtx.clearColor(0.0, 0.0, 0.0, 1.0);
+                State.GlCtx.enable(State.GlCtx.DEPTH_TEST);
+
+                Game.Tick();
+            });
+        </script>
+
+    </head>
+    <body>
+        <canvas id="screen" width="560" height="420"></canvas>
     </body>
 </html>

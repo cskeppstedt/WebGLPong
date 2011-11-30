@@ -7,3 +7,11 @@ body
 	background-repeat: no-repeat;
 	background-position: center top;
 }
+
+#screen
+{
+	position: absolute;
+	left: 50%;
+	margin-left: -370px;
+	top: 310px;
+}
