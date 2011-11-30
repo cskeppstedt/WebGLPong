@@ -1,0 +1,51 @@
+<!doctype html />
+<html>
+    <head>
+        <title>WebGL Pong</title>
+        <link rel="stylesheet" type="text/css" href="style/default.css" />
+        <script type="text/javascript" src="scripts/models.js"></script>
+        <script type="text/javascript" src="scripts/webgl-utils.js"></script>
+        <script type="text/javascript" src="scripts/utils.js"></script>
+        <script type="text/javascript" src="scripts/buffers.js"></script>
+        <script type="text/javascript" src="scripts/game.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                State.Canvas = document.getElementById("gameBoard");
+                initGL();
+                initProgram();
+                Buffers.init();
+                Game.Tick();
+            });
+        </script>
+
+    </head>
+    <body>
+        <canvas id="gameBoard" width="560" height="420"></canvas>
+        <script id="shader-fs" type="x-shader/x-fragment">
+            #ifdef GL_ES
+            precision highp float;
+            #endif
+
+            varying vec4 vColor;
+
+            void main(void) {
+                gl_FragColor = vColor;
+            }
+        </script>
+        <script id="shader-vs" type="x-shader/x-vertex">
+            attribute vec3 aVertexPosition;
+            attribute vec4 aVertexColor;
+
+            uniform mat4 uMVMatrix;
+            uniform mat4 uPMatrix;
+
+            varying vec4 vColor;
+
+            void main(void) {
+                gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+                vColor = aVertexColor;
+            }
+        </script>
+    </body>
+</html>
