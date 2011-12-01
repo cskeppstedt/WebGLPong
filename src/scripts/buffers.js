@@ -23,12 +23,12 @@ Buffers.init = function () {
     gl.bindBuffer(gl.ARRAY_BUFFER, Buffers.RightPaddle.Pos);
 
     var pw = Settings.PaddleWidth / 2.0;
-
+    var ph = Settings.PaddleHeight / 2.0;
     vertices = [
-         pw, 1.0, 0.0,
-        -pw, 1.0, 0.0,
-         pw, -1.0, 0.0,
-        -pw, -1.0, 0.0
+         pw, ph, 0.0,
+        -pw, ph, 0.0,
+         pw, -ph, 0.0,
+        -pw, -ph, 0.0
     ];
 
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
@@ -39,7 +39,7 @@ Buffers.init = function () {
     gl.bindBuffer(gl.ARRAY_BUFFER, Buffers.RightPaddle.Color);
     colors = []
     for (var i = 0; i < 4; i++) {
-        colors = colors.concat([0.5, 0.5, 1.0, 1.0]);
+        colors = colors.concat([1.0, 1.0, 1.0, 1.0]);
     }
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
     Buffers.RightPaddle.Color.itemSize = 4;
@@ -50,10 +50,10 @@ Buffers.init = function () {
     Buffers.LeftPaddle.Pos = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, Buffers.LeftPaddle.Pos);
     vertices = [
-         pw, 1.0, 0.0,
-        -pw, 1.0, 0.0,
-         pw, -1.0, 0.0,
-        -pw, -1.0, 0.0
+         pw, ph, 0.0,
+        -pw, ph, 0.0,
+         pw, -ph, 0.0,
+        -pw, -ph, 0.0
     ];
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
     Buffers.LeftPaddle.Pos.itemSize = 3;
@@ -63,7 +63,7 @@ Buffers.init = function () {
     gl.bindBuffer(gl.ARRAY_BUFFER, Buffers.LeftPaddle.Color);
     colors = []
     for (var i = 0; i < 4; i++) {
-        colors = colors.concat([1.0, 0.5, 1.0, 1.0]);
+        colors = colors.concat([1.0, 1.0, 1.0, 1.0]);
     }
 
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
@@ -74,11 +74,11 @@ Buffers.init = function () {
     Buffers.Ball.Pos = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, Buffers.Ball.Pos);
     vertices = [
-             halfBall, 0.1, 0.0,
-            -halfBall, 0.1, 0.0,
-             halfBall, -0.1, 0.0,
-            -halfBall, -0.1, 0.0
-            ];
+         halfBall,  halfBall, 0.0,
+        -halfBall,  halfBall, 0.0,
+         halfBall, -halfBall, 0.0,
+        -halfBall, -halfBall, 0.0
+    ];
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
     Buffers.Ball.Pos.itemSize = 3;
     Buffers.Ball.Pos.numItems = 4;

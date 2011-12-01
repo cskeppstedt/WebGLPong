@@ -12,3 +12,9 @@ http://www.sxc.hu/photo/1187553
 
 gl-matrix:
 https://github.com/toji/gl-matrix
+
+Pong sounds:
+http://www.atariage.com/forums/topic/45621-the-pong-sound/
+
+Audio lib:
+https://github.com/operasoftware/Emberwind

@@ -5,7 +5,7 @@ function initGL() {
         State.GlCtx = State.Canvas.getContext("experimental-webgl");
         State.GlCtx.viewportWidth = State.Canvas.width;
         State.GlCtx.viewportHeight = State.Canvas.height;
-        State.GlCtx.enable(gl.DEPTH_TEST);
+        State.GlCtx.enable(State.GlCtx.DEPTH_TEST);
     } catch (e) { }
 
     if (!State.GlCtx) {
