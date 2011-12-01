@@ -12,28 +12,7 @@
         <script type="text/javascript" src="scripts/buffers.js"></script>
         <script type="text/javascript" src="scripts/game.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-        <script type="text/javascript">
-            $(function () {
-                $('body').keydown(function (e) {
-                    if (e.keyCode == 32 && Game.Running === false) {// 32 = space
-                        $('#welcome').fadeOut('fast');
-                        Game.Start();
-                    } else {
-                        State.KeyDown = e.keyCode;
-                    }
-                }).keyup(function () {
-                    State.KeyDown = 0;
-                });
-
-                State.Canvas = document.getElementById("screen");
-                initGL();
-                initProgram();
-                Buffers.init();
-                Game.Init();
-                Game.Tick();
-            });
-        </script>
-
+        <script type="text/javascript" src="scripts/index.js"></script>
     </head>
     <body>
         <script id="shader-fs" type="x-shader/x-fragment">
@@ -62,14 +41,38 @@
             }
         </script>
         <div id="screen-wrapper">
-            <div id="left-score" class="score">0</div>
-            <div id="right-score" class="score">0</div>
-            <div id="divider"></div>
-            <div id="welcome">
-                <h1>WebGL Pong</h1>
-                <p>Press space to start!</p>
+            <div id="game-wrapper">
+                <div id="left-score" class="score">0</div>
+                <div id="right-score" class="score">0</div>
+                <div id="divider"></div>
+                <div id="welcome">
+                    <h1>WebGL Pong</h1>
+                    <p>Press space to start!</p>
+                </div>
+                <canvas id="screen" width="560" height="420"></canvas>
             </div>
-            <canvas id="screen" width="560" height="420"></canvas>
+            <div id="credits-wrapper">
+                <div id="credits">
+                    <h2>Pong - A Web implementation</h2>
+                    <p>Music:</p>
+                    <p>
+                        &quot;Gondolier and Temptation rag&quot;<br />
+                        Albert Benzler and Fred Van Eps
+                    </p>
+                    <p>Thanks to:</p>
+                    <p>Opera Software (Audio impl.)</p>
+                    <p>freemusicarchive.org (Music)</p>
+                    <p>www.atariage.com (Pong sounds)</p>
+                    <p>github.com/toji (GL-Matrix)</p>
+                    <p>www.sxc.hu (TV stock</p>
+                    <p>speckyboy.com (wallpaper pattern)</p>
+                </div>
+            </div>
+        </div>
+        <div id="overlay"></div>
+        <div id="buttons">
+            <a href="#" id="pong-button" title="Play Pong!"><span>Pong</span></a>
+            <a href="#" id="credits-button" title="Show credits"><span>Credits</span></a>
         </div>
     </body>
 </html>

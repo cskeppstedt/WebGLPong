@@ -1,5 +1,7 @@
 /// <reference path="models.js" />
 
+// Initializes the GL context on the canvas and stores the context
+// in State.GlCtx.
 function initGL() {
     try {
         State.GlCtx = State.Canvas.getContext("experimental-webgl");
@@ -14,6 +16,9 @@ function initGL() {
     }
 }
 
+// Given the value of the id attribute of the shader script, this
+// function loads the source, compiles it and returns the
+// compiled shader.
 function getShader(id) {
     var gl = State.GlCtx;
     var shaderScript = document.getElementById(id);
@@ -50,7 +55,8 @@ function getShader(id) {
     return shader;
 }
 
-
+// Initializes the shader program and stores it in State.Prog.
+// It loads the shaders and links the program.
 function initProgram() {
     var gl = State.GlCtx;
 

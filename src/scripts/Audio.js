@@ -1,14 +1,26 @@
+/******************************************************************************
+    Note: The code below is borrowed from Opera Software's open source
+    implementation of Emberwind HTML5:
+
+    https://github.com/operasoftware/Emberwind
+
+    I have done only a few alterations:
+     * Changed the sound files paths.
+     * Added a stopMusic function.
+
+******************************************************************************/
+
 function createCallback(callback, that) {
-    return function () {
-        callback.apply(that, arguments);
-    };
+return function () {
+callback.apply(that, arguments);
+};
 }
 
 /**
- * Audio component
- *
- * @param [callback]
- */
+* Audio component
+*
+* @param [callback]
+*/
 function Audio(callback) {
 	this.enabled = true;
 	this.player = new SoundPlayer(callback);
@@ -44,8 +56,9 @@ function Audio(callback) {
 	}
 	
     this.sfxFile = "resources/sfx" + fileSuffix;
+    this.musicFile = "resources/music" + fileSuffix;
 
-    this.player.AddChannel(this.sfxFile, 0, this.musicVolume);
+    this.player.AddChannel(this.musicFile, 0, this.musicVolume);
 
     // Use fewer channels on mobile devices.
 	var channels = /Opera mobile|Android|Windows (ce|phone)|Symbian|Fennec/i.test(navigator.userAgent) ? 1 : 7;
@@ -144,6 +157,16 @@ Audio.prototype.stopAllSoundFX = function(){
 			channel.Stop();
 		}
 	}
+};
+
+Audio.prototype.stopMusic = function () {
+    for (var i = 0; i < this.player.channels.length; i++) {
+        var channel = this.player.channels[i];
+        if (channel.category == 0) {
+            channel.Stop();
+            break;
+        }
+    }
 };
 
 /**

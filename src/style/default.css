@@ -15,9 +15,22 @@ body
 	position: absolute;
 	left: 50%;
 	margin-left: -370px;
-	top: 310px;
+	top: 314px;
 	width: 560px;
 	height: 420px;
+}
+
+#overlay
+{
+	background-image: url('../images/overlay.png');
+	background-repeat: no-repeat;
+	background-position: center top;
+	width: 620px;
+	height: 493px;
+	left: 50%;
+	top: 275px;
+	position: absolute;
+	margin-left: -405px;
 }
 
 .score
@@ -79,4 +92,46 @@ body
 	margin: 0;
 	padding: 0;
 	padding-top: 1em;
+}
+
+#credits-wrapper
+{
+	display: none;
+	overflow: hidden;
+	width: 560px;
+	height: 360px;
+}
+
+#credits
+{
+	position: relative;
+	width: 500px;
+	height: 450px;
+	padding: 30px;
+}
+
+#buttons
+{
+	position: absolute;
+	left: 50%;
+	top: 651px;
+	margin-left: 293px;
+}
+
+#buttons a 
+{
+	float:left;
+	display: block;
+	width: 21px;
+	height: 22px;
+	background: rgba(255,255,255,0.2);
+}
+#buttons a span
+{
+	display: none;
+}
+
+#credits-button
+{
+	margin-left: 68px;
 }
