@@ -27,8 +27,10 @@ $(function () {
     State.Audio = new Audio();
 
     State.Canvas = document.getElementById("screen");
-    initGL();
-    initProgram();
+    
+    Utils.initGL();
+    Utils.initProgram();
+
     Buffers.init();
     Game.Init();
     Game.Tick();
