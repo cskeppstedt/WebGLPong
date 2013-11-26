@@ -1,3 +1,8 @@
+// Licensed under Creative Commons Attribution Share Alike (CC BY-SA 3.0)
+// http://learningwebgl.com/cookbook/index.php/How_to_initialise_WebGL
+// http://learningwebgl.com/mediawiki-1.20.3/index.php/Loading_shaders_from_HTML_script_tags
+
+
 /// <reference path="models.js" />
 
 // Initializes the GL context on the canvas and stores the context
