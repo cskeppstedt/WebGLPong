@@ -1,6 +1,15 @@
 WebGL Pong
 =============
 
+This project was my submission to a 48 hour "hackathon" contest at Know IT. Most of which I spent trying to get a "fish eye" effect in WebGL so the game was curved in the corners of the TV - which I never did, unfortunately. GL was a completely uncharted area to me. If nothing else, I learned some GL and won an iPad.
+
+However, it features a 2D canvas rendered with shaders and all, and has a very basic AI for the computer paddle. It also has artificiell friction - if the paddle moves while the ball bounce against it, the ball will increase in speed in that direction.
+
+Demo
+----------------
+
+There's a demo running at http://s3.chsk.se/pong/
+
 Attributions
 ----------------
 
